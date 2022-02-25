@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Blog-post</title>
+          <link rel="icon" type="image/x-icon" th:href="@{/image/favicon.ico}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body class="bg-secondary">
+
+<section class="container-fluid bg-secondary text-white p-5">
+<div class="row ">
+	<h2 class="text-white text-center">Traveller's Blogs</h2>
+	</div>
+	<div class="container bg-dark text-white pt-5 pb-5">
+	
+		<div class="row">
+		    <div class="col-2 mr-5">
+		    <div class="d-grid gap-2 col-12">
+				 <a th:href="@{/}"><button type="submit" class="btn btn-primary">Add new Entry</button></a>
+				 <a th:href="@{/viewBlogs}"><button type="submit" class="btn btn-primary">View Blogs</button></a>
+			</div>
+       	    </div>
+       	    
+            <div class="col-2">
+				 
+       	    </div>
+		    <div class="col-6 align-items-end">
+		    <div class="input-group mb-3">
+		    <div class="row justify-content-center">
+		    <div class="col-8">
+		      		<img th:src="${imageUrl}" class="img-thumbnail" alt="Cover Photo">
+		      		</div>
+		      		</div>
+				</div>
+								
+                <form method="post" th:action="@{/update}" th:object="${blog}">
+				  <input type="hidden" th:value="${imageUrl}" name="imageUrl">	
+				  <input type="hidden" th:value="${id}" name="id">			
+				
+				<div class="input-group mb-3">
+				  <span class="input-group-text" id="inputGroup-sizing-default">Name</span>
+				  <input type="text" maxlength="100" th:value="${name}" name="name" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Enter your full name">
+				</div>
+				<div class="input-group mb-3">
+				  <span class="input-group-text" id="inputGroup-sizing-default">Date</span>
+				  <input type="date" th:value="${date}" name="date" th:max="${localDate}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+				</div>
+				
+				<div class="input-group mb-3">
+				  <span class="input-group-text">Description</span>
+				  <textarea th:text="${description}" name="description" class="form-control" aria-label="With textarea" placeholder="Write here..."></textarea>
+				</div>
+				
+				<div class="row justify-content-center">
+				    <div class="col-2">
+	           			<a th:href="@{/viewBlogs}"><button type="button" class="btn btn-primary">Cancel</button></a>
+		       	    </div>
+				    <div class="col-2">
+	                	<button type="submit" class="btn btn-success">Update</button>
+				    </div>
+			    </div>
+                
+                </form>                	  
+            </div>
+		</div>
+	</div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Blog</title>
+      <link rel="icon" type="image/x-icon" th:href="@{/image/favicon.ico}">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+<body>
+
+
+
+<section class="container-fluid bg-secondary text-white p-5">
+<div class="row ">
+	<h2 class="text-white text-center">Traveller's Blogs</h2>
+	</div>
+	<div class="container bg-dark text-white pt-5 pb-5">
+	
+		<div class="row justify-content-center">
+		    <div class="col-8 mb-2">
+		      		<img th:src="${imageUrl}" class="img-thumbnail" alt="Cover Photo">
+		</div>
+		   <p th:text="${date}"></p>
+		    <p th:text="${name}"></p>
+		    <p th:text="${description}"></p>
+		</div>
+	</div>
+</section>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>
